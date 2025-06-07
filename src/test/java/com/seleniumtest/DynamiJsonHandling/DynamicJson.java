@@ -24,7 +24,7 @@ public class DynamicJson {
         RestAssured.baseURI = url;
         Response response = given().header("Content-Type", "application/json")
                 .log().all()
-                .when().body(AddBookBody.bodyData(ISBN, aisle, name)).post("Library/Addbook.php").then().extract().response();
+                .when().body(AddBookBody.bodyData("Learn Appium with Java",ISBN, aisle, name)).post("Library/Addbook.php").then().extract().response();
         Assert.assertEquals(response.jsonPath().getString("Msg"), "successfully added");
         System.out.println("----ID:"+response.jsonPath().getString("ID")+"-----");
         System.setProperty("ID", response.jsonPath().getString("ID"));

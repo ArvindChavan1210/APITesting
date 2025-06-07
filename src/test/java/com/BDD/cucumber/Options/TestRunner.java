@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/com/BDD/FeatureFiles",
         glue = {"com.BDD.StepDefinationFiles"},
         plugin = {"json:target/jsonReports/cucumber-report.json"}
+
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {

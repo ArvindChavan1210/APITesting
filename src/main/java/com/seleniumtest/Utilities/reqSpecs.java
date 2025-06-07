@@ -13,16 +13,21 @@ public class reqSpecs {
 
     private static RequestSpecification reqs;
 
-    public static RequestSpecification requestSpecification() throws FileNotFoundException {
-        String baseUri = propertiesReader.readData("googleAPI", "url");
+    public static RequestSpecification requestSpecification(String url_req) throws FileNotFoundException {
+        String baseUri = propertiesReader.readData("googleAPI", url_req);
         System.out.println("Base URI: " + baseUri); // ✅ Helpful for debugging
         RequestSpecBuilder req = new RequestSpecBuilder();
         PrintStream log = new PrintStream(new FileOutputStream("D:\\JAVA\\VS-CodePRactice\\selenium-testng-demo\\logging.txt"));
+        assert baseUri != null;
+        if(baseUri.equalsIgnoreCase("https://rahulshettyacademy.com/maps/api/place"))
         reqs = req.setBaseUri(baseUri)
                 .setContentType(ContentType.JSON)
                 .addQueryParam("key", "qaclick123").addFilter(RequestLoggingFilter.logRequestTo(log))
 //                .addFilter(ResponseLoggingFilter.logResponseTo(log))
                 .build();
+       else if (baseUri.equalsIgnoreCase("https://rahulshettyacademy.com")) {
+           reqs=req.setBaseUri(baseUri).build();
+}
         return reqs;
     }
 }

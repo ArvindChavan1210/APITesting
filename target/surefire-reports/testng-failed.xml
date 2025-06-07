@@ -3,12 +3,13 @@
 <suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="1" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="com.GraphQL.TestGraphQL">
+      <class name="com.BDD.cucumber.Options.TestRunner">
         <methods>
-          <include name="getRest"/>
-          <include name="getGraph"/>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="2"/>
+          <include name="tearDownClass"/>
         </methods>
-      </class> <!-- com.GraphQL.TestGraphQL -->
+      </class> <!-- com.BDD.cucumber.Options.TestRunner -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

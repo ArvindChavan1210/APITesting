@@ -1,21 +1,21 @@
 Feature: Validate add feature APIs
 
 
-  @add_placeAPI
+  @add_placeAPI @regression
   Scenario: Validate add place api with body
     Given Add place payload
     When user calls "add" with "post" https request
     Then then api call get success with status code 200
     And "status" in response boy is "OK"
 
-  @get_placeAPI
+  @get_placeAPI @regression
   Scenario: Validate get place api request
     Given user calls "get" with "get" https request
     Then then api call get success with status code 200
     And "name" in response boy is "Frontline House"
 
 
-  @update_placeAPI
+  @update_placeAPI @regression @hook_update
   Scenario Outline: Validate update place api with body
     Given Update place payload with "<address>";
     When user calls "update" with "put" https request
@@ -29,7 +29,7 @@ Feature: Validate add feature APIs
       | 2703, town center lane, Sunnyvale 94086 CA, US |
 
 
-  @delete_placeAPI
+  @delete_placeAPI @regression @hook_delete
   Scenario: Validate delete place api
     Given delete place payload
     When user calls "delete" with "delete" https request

@@ -22,7 +22,7 @@ public class AddPlaceStepdefs {
 
     @Given("Add place payload")
     public void add_place_payload() throws FileNotFoundException {
-        rspc = reqSpecs.requestSpecification().body(addPlaceBody.addPlaceData());
+        rspc = reqSpecs.requestSpecification("url").body(addPlaceBody.addPlaceData());
 
     }
 
@@ -51,7 +51,7 @@ public class AddPlaceStepdefs {
             System.setProperty("place_id", response.jsonPath().getString("place_id"));
         } else if (resourceType.equalsIgnoreCase("get") && requestType.equalsIgnoreCase("get")) {
             endpoint = apiEnum.getResource();
-            response = given().spec(reqSpecs.requestSpecification()).queryParam("place_id", System.getProperty("place_id")).
+            response = given().spec(reqSpecs.requestSpecification("url")).queryParam("place_id", System.getProperty("place_id")).
                     when().get(endpoint).then().extract().response();
         } else if (resourceType.equalsIgnoreCase("update") && requestType.equalsIgnoreCase("put")) {
             endpoint = apiEnum.getResource();
@@ -67,13 +67,13 @@ public class AddPlaceStepdefs {
 
     @Given("Update place payload with {string};")
     public void update_place_payload_with(String address) throws FileNotFoundException {
-        rspc = reqSpecs.requestSpecification().body(addPlaceBody.updatePlaceBody(System.getProperty("place_id"), address));
+        rspc = reqSpecs.requestSpecification("url").body(addPlaceBody.updatePlaceBody(System.getProperty("place_id"), address));
 
     }
 
 
     @Given("delete place payload")
     public void delete_place_payload() throws FileNotFoundException {
-        rspc = reqSpecs.requestSpecification().body(addPlaceBody.deletePlaceBody(System.getProperty("place_id")));
+        rspc = reqSpecs.requestSpecification("url").body(addPlaceBody.deletePlaceBody(System.getProperty("place_id")));
     }
 }

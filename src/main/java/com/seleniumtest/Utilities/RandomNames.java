@@ -31,7 +31,7 @@ public class RandomNames {
 
     public static void main(String[] args) {
         System.out.println(randomFullName());
-        randomChars();
+        System.out.println(randomChars());
     }
 
 }
