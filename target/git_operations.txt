@@ -1,0 +1,21 @@
+1. How to check current branch
+-- Git branch
+2. How to switch to specific branch
+-- Git checkout <branch name>
+3. How to Create Repository through CMD
+- go to root folder and then
+- git init
+- git add .
+- git commit -m "Initial commit"
+- git remote add origin https://github.com/your-username/your-repo.git
+- git push -u origin main
+4. How to push the changes to main or required branch
+-  First switch to main branch using git checkout
+- check updates using git status
+- then add the updates using git add . (for all updates) or use git add <filepath> for adding specific update
+- git commit -m "String required to commit"
+- push the changes using git push -u origin main
+5. How to get latest code from repository
+- git pull origin <your-branch-name>
+- to check whether branch is updated or not git log --oneline
+

@@ -18,7 +18,7 @@ public class reqSpecs {
         String baseUri = propertiesReader.readData("googleAPI", "url");
         System.out.println("Base URI: " + baseUri); // ✅ Helpful for debugging
         RequestSpecBuilder req = new RequestSpecBuilder();
-        PrintStream log = new PrintStream(new FileOutputStream("D:\\JAVA\\VS-CodePRactice\\selenium-testng-demo\\logging.txt"));
+        PrintStream log = new PrintStream(new FileOutputStream("D:\\JAVA\\VS-CodePRactice\\selenium-testng-demo\\logging.txtg"));
         reqs = req.setBaseUri(baseUri)
                 .setContentType(ContentType.JSON)
                 .addQueryParam("key", "qaclick123").addFilter(RequestLoggingFilter.logRequestTo(log))

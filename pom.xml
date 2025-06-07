@@ -184,6 +184,7 @@
         </profile>
 
         <!-- Example profile to run a specific Cucumber TestNG runner class -->
+        <!-- user can pass specifc tag using cmd mvn test -PTestRunner -DcucumberTags=""-->
         <profile>
             <id>TestRunner</id>
             <build>
